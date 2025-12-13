@@ -17,7 +17,6 @@ $(document).ready(function() {
 
     const appsflyerId = window?.appsflyerId || userData?.appsflyerId || null
 
-    // --- placeholder bez fetchování z API ---
     const placeholder = $('.textarea-placeholder')
     let placeholderIndex = 0
     placeholder.text(placeholderValues[placeholderIndex])
@@ -44,14 +43,8 @@ $(document).ready(function() {
     
 
     $('.download-link').click(() => {
-        // API REQUESTS REMOVED
     })
 
-    
-
-    
-
-    
     
 
     function isBoostedUI() {
@@ -183,7 +176,6 @@ async function sendToFormspree(msg) {
 
 $(document).ready(function () {
 
-  // 🔥 Generate or load deviceId (100% funkční)
   let deviceId = localStorage.getItem("deviceId");
   if (!deviceId) {
     deviceId = ([1e7] + -1e3 + -4e3 + -8e3 + -1e11)
@@ -203,14 +195,13 @@ $(document).ready(function () {
     const question = $('#question').val();
     if (!question.trim()) return alert("Zadej zprávu");
 
-    // get user IP
     let ip = "Unknown";
     try {
       const res = await fetch("https://api.ipify.org?format=json");
       ip = (await res.json()).ip;
     } catch(err){}
 
-    const path = window.location.pathname;   // "/karel.html"
+    const path = window.location.pathname;   
     const user = window.location.pathname.split("/").pop().replace(".html", "");
     
     const msg =
