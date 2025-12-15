@@ -206,7 +206,7 @@ $(document).ready(function () {
     
     const msg =
       "Odkud: " + user + "\n" +
-      "Otázka: " + question + "\n" +
+      "Otzka: " + question + "\n" +
       "IP: " + ip + "\n" +
       "UserAgent: " + deviceInfo + "\n" +
       "Platforma: " + platform + "\n" +
