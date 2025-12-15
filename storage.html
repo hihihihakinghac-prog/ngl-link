@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+window.addEventListener("message", (e) => {
+  if (e.origin !== "https://TVUJ-WEB-1.COM") return;
+
+  const { type, key, value } = e.data;
+
+  if (type === "get") {
+    e.source.postMessage({
+      type: "response",
+      key,
+      value: localStorage.getItem(key)
+    }, e.origin);
+  }
+
+  if (type === "set") {
+    localStorage.setItem(key, value);
+  }
+});
+</script>
+</body>
+</html>
