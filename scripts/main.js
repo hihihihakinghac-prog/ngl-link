@@ -8,7 +8,6 @@ let placeholderValues = [
     "píšeš si s někým?",
     "radši píšeš nebo voláš?"
 ]
-
 $(document).ready(function() {
 
     let userData = JSON.parse(window.localStorage.getItem('userData'))
