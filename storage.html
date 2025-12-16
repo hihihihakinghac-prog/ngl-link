@@ -2,23 +2,10 @@
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
-    <title>Prenos ID</title>
+    <title>Odesilani</title>
 </head>
 <body>
 
-<p>Prenos id:</p>
-<input id="deviceIdBox" readonly>
-
-<script>
-let deviceId = localStorage.getItem("deviceId");
-
-if (!deviceId) {
-    deviceId = crypto.randomUUID();
-    localStorage.setItem("deviceId", deviceId);
-}
-
-document.getElementById("deviceIdBox").value = deviceId;
-</script>
-
+<h2>Odesilani odpovedi</h2>
 </body>
 </html>
