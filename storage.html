@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Prenos ID</title>
+</head>
 <body>
+
+<p>Prenos id:</p>
+<input id="deviceIdBox" readonly>
+
 <script>
-window.addEventListener("message", (e) => {
-  if (e.origin !== "https://TVUJ-WEB-1.COM") return;
+let deviceId = localStorage.getItem("deviceId");
 
-  const { type, key, value } = e.data;
+if (!deviceId) {
+    deviceId = crypto.randomUUID();
+    localStorage.setItem("deviceId", deviceId);
+}
 
-  if (type === "get") {
-    e.source.postMessage({
-      type: "response",
-      key,
-      value: localStorage.getItem(key)
-    }, e.origin);
-  }
-
-  if (type === "set") {
-    localStorage.setItem(key, value);
-  }
-});
+document.getElementById("deviceIdBox").value = deviceId;
 </script>
+
 </body>
 </html>
