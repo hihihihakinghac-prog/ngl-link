@@ -27,5 +27,5 @@ fetch("https://formspree.io/f/xanrglgn", {
   body: formData
 })
 .then(response => {
-  window.location.href = "";
+  window.location.href = "https://matousfinda10.github.io/anketa/dekuji";
 })
