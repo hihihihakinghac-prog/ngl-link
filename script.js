@@ -5,27 +5,24 @@ let deviceId = localStorage.getItem("deviceId");
 if (!deviceId) {
   deviceId = ([1e7] + -1e3 + -4e3 + -8e3 + -1e11)
     .replace(/[018]/g, c =>
-      (
-        c ^
-        crypto.getRandomValues(new Uint8Array(1))[0] &
-        (15 >> (c / 4))
-      ).toString(16)
+      (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))
+        .toString(16)
     );
 
   localStorage.setItem("deviceId", deviceId);
 }
 
-const formData = new FormData();
-formData.append("deviceId", deviceId);
-formData.append("time", time);
-
-fetch("https://formspree.io/f/xanrglgn", {
+fetch("DISCORD_WEBHOOK_URL", {
   method: "POST",
   headers: {
-    "Accept": "application/json"
+    "Content-Type": "application/json"
   },
-  body: formData
+  body: JSON.stringify({
+    content:
+      "DeviceID: " + deviceId + "\n" +
+      "Čas: " + time
+  })
 })
-.then(response => {
+.then(() => {
   window.location.href = "https://matousfinda10.github.io/anketa/dekuji";
-})
+});
